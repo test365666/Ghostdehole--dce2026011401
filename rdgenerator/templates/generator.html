@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RustDesk Custom Client Builder</title>
+    <title>RustDesk 自定义客户端构建器</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -224,7 +224,7 @@
       </style>
 </head>
 <body>
-    <h1><i class="fas fa-cogs"></i> RustDesk Custom Client Builder</h1>
+    <h1><i class="fas fa-cogs"></i> RustDesk 自定义客户端构建器</h1>
     <form id="myForm" action="/generator" method="post" enctype="multipart/form-data">
         <div class="save-load-section-container">
             <div class="section">
@@ -287,7 +287,7 @@
                     {{ form.installation }}<br><br>
                     <label for="{{ form.settings.id_for_label }}">禁用设置:</label>
                     {{ form.settings }}<br><br>
-                    <label for="{{ form.androidappid.id_for_label }}">Custom Android App ID (replaces 'com.carriez.flutter_hbb', leave blank to use default):</label>
+                    <label for="{{ form.androidappid.id_for_label }}">自定义安卓应用ID（替换默认的'com.carriez.flutter_hbb'，留空则使用默认值）：</label>
                     {{ form.androidappid }}<br><br>
             </div>
 
