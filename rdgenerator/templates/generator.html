@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -539,7 +539,7 @@
         async function saveFormData() {
             const filename = document.getElementById("{{ form.exename.id_for_label }}").value;
             if (!filename) {
-                document.getElementById("filenameError").textContent = "文件名是必填项.";
+                document.getElementById("filenameError").textContent = "文件名是必填项。";
                 return;
             } else {
                 document.getElementById("filenameError").textContent = "";
@@ -659,7 +659,7 @@
                                 }
                             }
                         } catch (error) {
-                            alert("Error loading data. Invalid JSON file.");
+                            alert("加载配置失败：JSON 文件格式不正确。");
                         }
                     };
                     reader.readAsText(file);
