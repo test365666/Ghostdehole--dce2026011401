@@ -136,7 +136,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "5% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "5% 已完成"}'
 
       - name: Maximize build space
         run: |
@@ -205,7 +205,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "15% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "15% 已完成"}'
 
       - name: Restore bridge files
         if: matrix.job.arch == 'x86_64' || env.UPLOAD_ARTIFACT == 'true'
@@ -377,7 +377,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "65% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "65% 已完成"}'
 
       - uses: rustdesk-org/run-on-arch-action@amd64-support
         name: Build rustdesk
@@ -642,7 +642,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Generation failed, try again"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "生成失败，请重试"}'
 
       - name: failed
         if: cancelled()
@@ -651,7 +651,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Generation cancelled, try again"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "生成已取消，请重试"}'
 
   build-appimage:
     name: Build appimage ${{ matrix.job.target }}
@@ -830,7 +830,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Success"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "成功！"}'
 
       - uses: geekyeggo/delete-artifact@v5
         continue-on-error: true

@@ -151,7 +151,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "5% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "5% 已完成"}'
 
       - name: Install dependencies
         run: |
@@ -434,7 +434,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "35% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "35% 已完成"}'
 
       - name: replace flutter icons
         if: ${{ inputs.iconlink != 'false' }}
@@ -489,7 +489,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "45% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "45% 已完成"}'
 
       - name: icons
         if: ${{ inputs.iconlink != 'false' }}
@@ -568,7 +568,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "75% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "75% 已完成"}'
       
       - uses: r0adkll/sign-android-release@v1
         name: Sign app APK
@@ -604,7 +604,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Success"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "成功！"}'
 
       - name: failed
         if: failure()
@@ -613,7 +613,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Generation failed, try again"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "生成失败，请重试"}'
 
       - name: failed
         if: cancelled()
@@ -622,5 +622,5 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Generation cancelled, try again"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "生成已取消，请重试"}'
 

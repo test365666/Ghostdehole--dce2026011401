@@ -129,7 +129,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "5% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "5% 已完成"}'
 
       - name: Checkout source code
         if: ${{ env.VERSION != 'master' }}
@@ -245,7 +245,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "10% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "10% 已完成"}'
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@v1
@@ -265,7 +265,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "20% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "20% 已完成"}'
 
       - name: Setup vcpkg with Github Actions binary cache
         uses: lukka/run-vcpkg@v11
@@ -352,7 +352,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "50% complete, this step takes about 5 minutes, be patient."}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "50% 已完成，本步骤约需 5 分钟，请耐心等待"}'
 
       - name: Build rustdesk
         id: build
@@ -397,7 +397,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "70% complete, this step takes about 5 minutes, be patient."}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "70% 已完成，本步骤约需 5 分钟，请耐心等待"}'
       
       - name: zip dlls
         continue-on-error: true
@@ -451,7 +451,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "85% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "85% 已完成"}'
 
       - name: zip exe
         continue-on-error: true
@@ -509,7 +509,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Success"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "成功！"}'
 
       - name: failed
         if: failure()
@@ -518,7 +518,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Generation failed, try again"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "生成失败，请重试"}'
 
       - name: failed
         if: cancelled()
@@ -527,5 +527,5 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Generation cancelled, try again"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "生成已取消，请重试"}'
 

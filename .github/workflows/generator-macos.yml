@@ -125,7 +125,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "5% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "5% 已完成"}'
 
       - name: Checkout source code
         if: ${{ env.VERSION != 'master' }}
@@ -244,7 +244,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "10% complete"}'   
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "10% 已完成"}'   
           
       - name: Install build runtime
         run: |
@@ -474,7 +474,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "20% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "20% 已完成"}'
 
       - name: Restore bridge files
         uses: actions/download-artifact@master
@@ -510,7 +510,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "25% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "25% 已完成"}'
 
       - name: Create MacOS directory structure
         run: |
@@ -538,7 +538,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "50% complete, this step takes about 5 minutes, be patient."}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "50% 已完成，本步骤约需 5 分钟，请耐心等待"}'
       
       - name: Install rcodesign tool
         if: env.MACOS_P12_BASE64 != null
@@ -566,7 +566,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "70% complete, this step takes about 5 minutes, be patient."}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "70% 已完成，本步骤约需 5 分钟，请耐心等待"}'
   
       - name: Show version information (Rust, cargo, Clang)
         shell: bash
@@ -615,7 +615,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "85% complete"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "85% 已完成"}'
 
       - name: Sign macOS app bundle
         if: env.MACOS_P12_BASE64 != ''
@@ -750,7 +750,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Success"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "成功！"}'
 
       - name: failed
         if: failure()
@@ -759,7 +759,7 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Generation failed, try again"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "生成失败，请重试"}'
 
       - name: failed
         if: cancelled()
@@ -768,5 +768,5 @@ jobs:
           url: ${{ env.STATUS_URL }}
           method: 'POST'
           customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"uuid": "${{ inputs.uuid }}", "status": "Generation cancelled, try again"}'
+          data: '{"uuid": "${{ inputs.uuid }}", "status": "生成已取消，请重试"}'
 
