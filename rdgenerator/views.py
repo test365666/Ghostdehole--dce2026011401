@@ -249,7 +249,7 @@ def generator_view(request):
             response = requests.post(url, json=data, headers=headers)
             print(response)
             if 200 <= response.status_code < 300:
-                return render(request, 'waiting.html', {'filename':filename, 'uuid':myuuid, 'status':"Starting generator...please wait", 'platform':platform})
+                return render(request, 'waiting.html', {'filename':filename, 'uuid':myuuid, 'status':"正在启动生成器……请稍候", 'platform':platform})
             else:
                 if _settings.DEBUG_API_RESPONSE:
                     return JsonResponse({
